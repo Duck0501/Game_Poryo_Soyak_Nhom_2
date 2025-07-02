@@ -66,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 266
+  spritePixelsToUnits: 287
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -133,10 +133,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 2574
+        width: 5121
         height: 345
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -149,121 +149,11 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: decor 1.1_1
-      rect:
-        serializedVersion: 2
-        x: 2596
-        y: 83
-        width: 306
-        height: 262
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77c4602f76f424f20800000000000000
-      internalID: 3405371576106241143
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decor 1.1_2
-      rect:
-        serializedVersion: 2
-        x: 2920
-        y: 83
-        width: 307
-        height: 262
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f221a73f9a44adb60800000000000000
-      internalID: 7771599603706237487
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decor 1.1_3
-      rect:
-        serializedVersion: 2
-        x: 3245
-        y: 83
-        width: 306
-        height: 262
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 6ae5fb91f7ad3b810800000000000000
-      internalID: 1780006517169151654
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decor 1.1_4
-      rect:
-        serializedVersion: 2
-        x: 3570
-        y: 83
-        width: 306
-        height: 262
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a755a7a4e6e72d7c0800000000000000
-      internalID: -4048034102891620998
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: decor 1.1_5
-      rect:
-        serializedVersion: 2
-        x: 3886
-        y: 0
-        width: 1235
-        height: 345
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 1729d2b46c674bfc0800000000000000
-      internalID: -3480026018013670799
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ef2d076f334b5ab4d9318553f579c145
     internalID: 0
     vertices: []
     indices: 
