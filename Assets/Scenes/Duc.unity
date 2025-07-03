@@ -2625,6 +2625,88 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593118743}
   m_CullTransparentMesh: 1
+--- !u!1 &1613640095
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1613640097}
+  - component: {fileID: 1613640096}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1613640096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613640095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5bf1f27cbf38d3449c097b0d78b772f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasHome: {fileID: 1518529445}
+  canvasHelp: {fileID: 2039154664}
+  canvasLevel: {fileID: 76056007}
+  levelPrefabs:
+  - {fileID: 2599039072713745401, guid: 945ee344aa0405d4ebafd4c0627ec70a, type: 3}
+  - {fileID: 3208365166341666745, guid: df9b79302fbcfde43bfe7a5b873b208c, type: 3}
+  - {fileID: 6915645457053024411, guid: eb8dd28fcaf86314a887b994e777737c, type: 3}
+  - {fileID: 6002256849452115230, guid: bea0a142d2d78904595bfadd0e75688a, type: 3}
+  - {fileID: 6398957114902848858, guid: f1eb6acfee947e6449c87cfdf50cbbeb, type: 3}
+  - {fileID: 7545754628695443926, guid: 75b56734c2af7144593f2eee581732e6, type: 3}
+  - {fileID: 4778370150367277148, guid: e1eda311b6fead94ea175b6c94ff7126, type: 3}
+  - {fileID: 3394666176493353335, guid: 6338a06a32f0190429214a84cba4aba5, type: 3}
+  - {fileID: 1869461193181048183, guid: 2128db7c7037a0c41b7f4900caf5c104, type: 3}
+  - {fileID: 7902174083407713452, guid: d8562ef2aac243a4283cb4027a4cc989, type: 3}
+  - {fileID: 2973757190965784945, guid: 560785fd897c29f498a6a871aa8adb22, type: 3}
+  currentLevel: {fileID: 0}
+  levelParent: {fileID: 0}
+  buttonHelp: {fileID: 2932753}
+  buttonPlay: {fileID: 1982720569}
+  buttonHomeInHelp: {fileID: 171109298}
+  buttonHomeInLevel: {fileID: 2101536772}
+  levelButtons:
+  - {fileID: 2104108651}
+  - {fileID: 901082616}
+  - {fileID: 1770980108}
+  - {fileID: 673518001}
+  - {fileID: 1249919733}
+  - {fileID: 508052938}
+  - {fileID: 692913359}
+  - {fileID: 519017747}
+  - {fileID: 719308908}
+  - {fileID: 302298828}
+  - {fileID: 1521329944}
+  - {fileID: 224865390}
+  - {fileID: 2136536945}
+  - {fileID: 1061088244}
+  - {fileID: 1331896259}
+  - {fileID: 1656881635}
+--- !u!4 &1613640097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1613640095}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -9.020743, y: 1.9225619, z: -0.14613749}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1656881633
 GameObject:
   m_ObjectHideFlags: 0
@@ -3684,3 +3766,4 @@ SceneRoots:
   - {fileID: 2039154668}
   - {fileID: 76056011}
   - {fileID: 874373430}
+  - {fileID: 1613640097}
