@@ -723,8 +723,8 @@ RectTransform:
   m_GameObject: {fileID: 1576381971817742163}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3707237087610123851}
   - {fileID: 3605880103546973300}
@@ -948,7 +948,7 @@ MonoBehaviour:
   moveDuration: 0.5
   moveInterval: 1
   currentTurn: 0
-  maxTurns: 99
+  maxTurns: 3
   turnText: {fileID: 2348454469167570767}
   gameOverPanel: {fileID: 7118862764442179621}
   winPanel: {fileID: 6045322033621811234}
@@ -1944,8 +1944,8 @@ RectTransform:
   m_GameObject: {fileID: 3669625322069158617}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
-  m_ConstrainProportionsScale: 1
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 113955964899855625}
   - {fileID: 7212469062178044421}
@@ -3268,7 +3268,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6045322033621811234}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
