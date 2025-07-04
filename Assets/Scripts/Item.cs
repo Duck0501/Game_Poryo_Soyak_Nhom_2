@@ -7,10 +7,16 @@ public enum ItemType
     Swap,   // Có thể đổi chỗ hoặc màu
     Other   // Mặc định
 }
-
+public enum FoodType
+{
+    Purple,
+    Red,
+    Yellow
+}
 public class Item : MonoBehaviour
 {
     public ItemType itemType = ItemType.Other;
+    public FoodType foodType;
 
     // Nếu là Swap item → có thể đổi màu khi tới ô mới
     public Sprite[] possibleSprites;
