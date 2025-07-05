@@ -105,6 +105,9 @@ MonoBehaviour:
   itemType: 0
   foodType: 1
   possibleSprites: []
+  purpleSprite: {fileID: -1278046289732407938, guid: f3d2781b31a622b41b72047fb3dee1b0, type: 3}
+  redSprite: {fileID: -7181416465222828618, guid: 25fc09f274ac71f42bb6d4075024751e, type: 3}
+  yellowSprite: {fileID: -1316317608693992663, guid: 10154b44bbb57da4aaf46c9c3b699311, type: 3}
 --- !u!61 &-5811721924758555851
 BoxCollider2D:
   m_ObjectHideFlags: 0

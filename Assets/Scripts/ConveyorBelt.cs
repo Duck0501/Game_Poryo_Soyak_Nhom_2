@@ -14,10 +14,12 @@ public class ConveyorBelt : MonoBehaviour
     {
         if (beltSlots.Count != itemsOnBelt.Count)
         {
+            Debug.LogWarning("❌ Belt slot và items không khớp!");
             onFinished?.Invoke();
             return;
         }
 
+        // Xoay danh sách
         Item lastItem = itemsOnBelt[itemsOnBelt.Count - 1];
         for (int i = itemsOnBelt.Count - 1; i > 0; i--)
             itemsOnBelt[i] = itemsOnBelt[i - 1];
@@ -27,22 +29,29 @@ public class ConveyorBelt : MonoBehaviour
 
         for (int i = 0; i < itemsOnBelt.Count; i++)
         {
-            if (itemsOnBelt[i] != null)
+            var item = itemsOnBelt[i];
+
+            if (item != null && item.gameObject.activeInHierarchy)
             {
                 totalToMove++;
-                itemsOnBelt[i].transform.DOMove(beltSlots[i].position, moveDuration)
+
+                item.isMovingByConveyor = true; // ✅ Đánh dấu đang di chuyển tự động
+
+                item.transform.DOMove(beltSlots[i].position, moveDuration)
                     .SetEase(Ease.OutQuad)
                     .OnComplete(() =>
                     {
+                        item.isMovingByConveyor = false; // ✅ Hết di chuyển
                         totalToMove--;
                         if (totalToMove <= 0)
                             onFinished?.Invoke();
                     });
 
-                itemsOnBelt[i].OnEnterNewSlot();
+                item.OnEnterNewSlot();
             }
         }
 
+        // ✅ Nếu không có item nào Tween → vẫn gọi callback
         if (totalToMove == 0)
             onFinished?.Invoke();
     }

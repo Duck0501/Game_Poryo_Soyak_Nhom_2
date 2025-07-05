@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1576513346247042216}
   - component: {fileID: 2384510823725714066}
   - component: {fileID: 4585241967569662882}
+  - component: {fileID: 282285858640809178}
   m_Layer: 0
   m_Name: box round
   m_TagString: Untagged
@@ -119,7 +120,7 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -137,3 +138,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368dc7e14a031004e9d9ae4cb887cd7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &282285858640809178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4699639256784947389}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69511281be3bd6e4a9fc2f070f682933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetColor: 2

@@ -8,26 +8,31 @@ public enum PlayerType
 }
 public class PlayerEatFood : MonoBehaviour
 {
-    public ConveyorBelt conveyorBelt; // Gán qua Inspector nếu cần
+    public ConveyorBelt conveyorBelt;
     public PlayerType playerType;
-    public GameObject explodePrefab; // 👈 Prefab animation được gán từ Inspector
+    public GameObject explodePrefab;
+    private Item pendingItemToEat;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (pendingItemToEat != null) return;
+
         Item item = collision.GetComponent<Item>();
         if (item != null && item.itemType == ItemType.Food)
         {
-            // So sánh loại
             if ((FoodType)playerType == item.foodType)
             {
-                // ✅ Trì hoãn 0.1 giây trước khi ăn
-                StartCoroutine(DelayedEat(item, 0.1f));
-            }
-            else
-            {
-                Debug.Log("🚫 Không ăn vì sai loại: Player " + playerType + " ≠ Food " + item.foodType);
+                pendingItemToEat = item;
             }
         }
+    }
+
+    public void TryEatAfterBelt()
+    {
+        if (pendingItemToEat == null) return;
+
+        StartCoroutine(DelayedEat(pendingItemToEat, 0.1f));
+        pendingItemToEat = null;
     }
 
     private System.Collections.IEnumerator DelayedEat(Item item, float delay)
@@ -37,7 +42,6 @@ public class PlayerEatFood : MonoBehaviour
         Vector3 foodPos = item.transform.position;
         Vector3 playerPos = transform.position;
 
-        // ✅ Remove khỏi danh sách băng chuyền
         if (conveyorBelt != null)
         {
             int index = conveyorBelt.itemsOnBelt.IndexOf(item);
@@ -47,22 +51,18 @@ public class PlayerEatFood : MonoBehaviour
             }
         }
 
-        // ✅ Ẩn object gốc
         item.gameObject.SetActive(false);
-        gameObject.SetActive(false); // player biến mất
+        gameObject.SetActive(false);
 
-        // ✅ Tạo hiệu ứng tại vị trí thức ăn
         if (explodePrefab != null)
         {
             GameObject fx1 = Instantiate(explodePrefab, foodPos, Quaternion.identity);
             GameObject fx2 = Instantiate(explodePrefab, playerPos, Quaternion.identity);
-
             Destroy(fx1, 1f);
             Destroy(fx2, 1f);
         }
 
-        // ✅ Huỷ cả hai sau 1 frame
-        Destroy(item.gameObject, 0.1f);
-        Destroy(gameObject, 0.1f);
+        ConveyorManager.Instance.QueueDestroy(item.gameObject, 0.1f);
+        ConveyorManager.Instance.QueueDestroy(gameObject, 0.1f);
     }
 }
