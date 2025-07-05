@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
-using static UnityEditor.Progress;
 
 public class ConveyorBelt : MonoBehaviour
 {
@@ -46,7 +45,6 @@ public class ConveyorBelt : MonoBehaviour
     public void OnPlayButtonClicked()
     {
         isPlaying = !isPlaying;
-
         playButtonImage.sprite = isPlaying ? stopSprite : playSprite;
     }
 
@@ -55,9 +53,9 @@ public class ConveyorBelt : MonoBehaviour
         if (beltSlots.Count != itemsOnBelt.Count) return;
 
         currentTurn++;
-        turnText.text = $"{currentTurn.ToString("D2")}";
+        turnText.text = $"{currentTurn:D2}";
 
-        // Xoay mảng item
+        // Xoay danh sách item
         Item lastItem = itemsOnBelt[itemsOnBelt.Count - 1];
         for (int i = itemsOnBelt.Count - 1; i > 0; i--)
         {
@@ -81,7 +79,6 @@ public class ConveyorBelt : MonoBehaviour
                         movingCount--;
                         if (movingCount <= 0)
                         {
-                            // ✅ Sau khi tất cả Tween xong, kiểm tra trạng thái game
                             if (!HasAnyFood())
                             {
                                 isPlaying = false;
@@ -97,6 +94,9 @@ public class ConveyorBelt : MonoBehaviour
                         }
                     });
 
+                // Cập nhật thông tin belt cho item
+                itemsOnBelt[i].beltIndex = index;
+                itemsOnBelt[i].conveyor = this;
                 itemsOnBelt[i].OnEnterNewSlot();
             }
         }
