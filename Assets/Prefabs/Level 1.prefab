@@ -919,7 +919,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7543441720949243614}
-  - component: {fileID: 8236915132200680130}
   m_Layer: 0
   m_Name: map
   m_TagString: Untagged
@@ -961,67 +960,6 @@ Transform:
   - {fileID: 7287568846013260839}
   m_Father: {fileID: 3967706236989736069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8236915132200680130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1717840283495803131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fbccf84d296ead47941e7bb0cdd5bb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  beltSlots:
-  - {fileID: 3339187231175771320}
-  - {fileID: 2989613766599698864}
-  - {fileID: 6298901647558896594}
-  - {fileID: 7782815730029074643}
-  - {fileID: 609504914011264672}
-  - {fileID: 8877597290316022153}
-  - {fileID: 2391330843086930809}
-  - {fileID: 5639681758521584004}
-  - {fileID: 3946869949100119923}
-  - {fileID: 1199021959742863050}
-  - {fileID: 2867709693990343325}
-  - {fileID: 8533162780256106044}
-  - {fileID: 759985060894506909}
-  - {fileID: 2971883496282380220}
-  - {fileID: 8062384150470282049}
-  - {fileID: 3758084480605221075}
-  - {fileID: 8039807243470779647}
-  - {fileID: 977754971402179803}
-  itemsOnBelt:
-  - {fileID: 3262765957659572375}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 1596329665682175016}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 5137749542649290123}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  moveDuration: 0.5
-  moveInterval: 1
-  currentTurn: 0
-  maxTurns: 99
-  turnText: {fileID: 2348454469167570767}
-  gameOverPanel: {fileID: 7118862764442179621}
-  winPanel: {fileID: 6045322033621811234}
-  playButton: {fileID: 1076621139380738739}
-  playButtonImage: {fileID: 616313733545194069}
-  playSprite: {fileID: 6068752714494607558, guid: 591318ee53538b34c811f5f61ee21299, type: 3}
-  stopSprite: {fileID: 3794550611322748858, guid: 08c5a2cd87458694fa07f4b50016abb9, type: 3}
 --- !u!1 &1763452767043307070
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,6 +1152,7 @@ Transform:
   - {fileID: 3992071369523467917}
   - {fileID: 7088396192590338651}
   - {fileID: 9128528591600848426}
+  - {fileID: 3417577327662601145}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2638192025728331638
@@ -1943,6 +1882,62 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &3292258597152119098
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3417577327662601145}
+  - component: {fileID: 4702413262671372649}
+  m_Layer: 0
+  m_Name: ConveyorManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3417577327662601145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292258597152119098}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 8.54, y: 0.28336954, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3967706236989736069}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4702413262671372649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3292258597152119098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 901cf175da6ff7d4284d1b223da0d657, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  allBelts:
+  - {fileID: 223217510586022477}
+  turnText: {fileID: 2348454469167570767}
+  winPanel: {fileID: 6045322033621811234}
+  losePanel: {fileID: 7118862764442179621}
+  playButton: {fileID: 1076621139380738739}
+  playButtonImage: {fileID: 616313733545194069}
+  playSprite: {fileID: 6068752714494607558, guid: 591318ee53538b34c811f5f61ee21299, type: 3}
+  stopSprite: {fileID: 3794550611322748858, guid: 08c5a2cd87458694fa07f4b50016abb9, type: 3}
+  moveInterval: 1
+  maxTurns: 99
+  currentTurn: 0
 --- !u!1 &3582800670476637174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4285,8 +4280,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8236915132200680130}
-        m_TargetAssemblyTypeName: ConveyorBelt, Assembly-CSharp
+      - m_Target: {fileID: 4702413262671372649}
+        m_TargetAssemblyTypeName: ConveyorManager, Assembly-CSharp
         m_MethodName: OnPlayButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -5057,8 +5052,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9128528591600848426}
+  - component: {fileID: 223217510586022477}
   m_Layer: 0
-  m_Name: ListPoint
+  m_Name: belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5097,6 +5093,57 @@ Transform:
   - {fileID: 977754971402179803}
   m_Father: {fileID: 3967706236989736069}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &223217510586022477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8870328715619997382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbccf84d296ead47941e7bb0cdd5bb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  beltSlots:
+  - {fileID: 3339187231175771320}
+  - {fileID: 2989613766599698864}
+  - {fileID: 6298901647558896594}
+  - {fileID: 7782815730029074643}
+  - {fileID: 609504914011264672}
+  - {fileID: 8877597290316022153}
+  - {fileID: 2391330843086930809}
+  - {fileID: 5639681758521584004}
+  - {fileID: 3946869949100119923}
+  - {fileID: 1199021959742863050}
+  - {fileID: 2867709693990343325}
+  - {fileID: 8533162780256106044}
+  - {fileID: 759985060894506909}
+  - {fileID: 2971883496282380220}
+  - {fileID: 8062384150470282049}
+  - {fileID: 3758084480605221075}
+  - {fileID: 8039807243470779647}
+  - {fileID: 977754971402179803}
+  itemsOnBelt:
+  - {fileID: 3262765957659572375}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 1596329665682175016}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 5137749542649290123}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  moveDuration: 0
 --- !u!1 &8898876000196991420
 GameObject:
   m_ObjectHideFlags: 0
@@ -5368,21 +5415,9 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3044016533686834496}
     - target: {fileID: 566437988436888599, guid: 48bccc6bc6b3fb94584bca618cc1a0b0, type: 3}
-      propertyPath: conveyorRef
-      value: 
-      objectReference: {fileID: 8236915132200680130}
-    - target: {fileID: 566437988436888599, guid: 48bccc6bc6b3fb94584bca618cc1a0b0, type: 3}
       propertyPath: targetSlotIndex
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1474074225590820337, guid: 48bccc6bc6b3fb94584bca618cc1a0b0, type: 3}
-      propertyPath: conveyorBelt
-      value: 
-      objectReference: {fileID: 8236915132200680130}
-    - target: {fileID: 2087335456038506278, guid: 48bccc6bc6b3fb94584bca618cc1a0b0, type: 3}
-      propertyPath: conveyorBelt
-      value: 
-      objectReference: {fileID: 8236915132200680130}
     - target: {fileID: 3063297979859385743, guid: 48bccc6bc6b3fb94584bca618cc1a0b0, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.925
@@ -5587,14 +5622,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3967706236989736069}
     m_Modifications:
-    - target: {fileID: 723072331207739111, guid: 17a1e4140b5666a4caf6fd2e26f7f49c, type: 3}
-      propertyPath: conveyorBelt
-      value: 
-      objectReference: {fileID: 8236915132200680130}
-    - target: {fileID: 2359593757776393898, guid: 17a1e4140b5666a4caf6fd2e26f7f49c, type: 3}
-      propertyPath: conveyorBelt
-      value: 
-      objectReference: {fileID: 8236915132200680130}
     - target: {fileID: 2748102116641631652, guid: 17a1e4140b5666a4caf6fd2e26f7f49c, type: 3}
       propertyPath: m_Name
       value: Yellow
@@ -5643,10 +5670,6 @@ PrefabInstance:
       propertyPath: eatZone
       value: 
       objectReference: {fileID: 302998958695745848}
-    - target: {fileID: 8274671966792971982, guid: 17a1e4140b5666a4caf6fd2e26f7f49c, type: 3}
-      propertyPath: conveyorRef
-      value: 
-      objectReference: {fileID: 8236915132200680130}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5800,14 +5823,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3967706236989736069}
     m_Modifications:
-    - target: {fileID: 723072331207739111, guid: 17a1e4140b5666a4caf6fd2e26f7f49c, type: 3}
-      propertyPath: conveyorBelt
-      value: 
-      objectReference: {fileID: 8236915132200680130}
-    - target: {fileID: 2359593757776393898, guid: 17a1e4140b5666a4caf6fd2e26f7f49c, type: 3}
-      propertyPath: conveyorBelt
-      value: 
-      objectReference: {fileID: 8236915132200680130}
     - target: {fileID: 2748102116641631652, guid: 17a1e4140b5666a4caf6fd2e26f7f49c, type: 3}
       propertyPath: m_Name
       value: Yellow (1)
@@ -5856,10 +5871,6 @@ PrefabInstance:
       propertyPath: eatZone
       value: 
       objectReference: {fileID: 7287568846013260839}
-    - target: {fileID: 8274671966792971982, guid: 17a1e4140b5666a4caf6fd2e26f7f49c, type: 3}
-      propertyPath: conveyorRef
-      value: 
-      objectReference: {fileID: 8236915132200680130}
     - target: {fileID: 8274671966792971982, guid: 17a1e4140b5666a4caf6fd2e26f7f49c, type: 3}
       propertyPath: targetSlotIndex
       value: 6
