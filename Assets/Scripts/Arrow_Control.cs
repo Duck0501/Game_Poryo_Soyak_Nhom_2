@@ -7,7 +7,7 @@ public class Arrow_Control : MonoBehaviour
     private Vector3 originalPosition;
     private bool isDragging = false;
 
-    [Header("Thả hợp lệ nếu nằm trong khoảng cách này")]
+    public bool IsDraggingPublic => isDragging;
     public float validDropDistance = 0.5f;
 
     void Start()
@@ -33,8 +33,7 @@ public class Arrow_Control : MonoBehaviour
     {
         isDragging = false;
 
-        // Kiểm tra có điểm hợp lệ gần đó không
-        GameObject[] dropPoints = GameObject.FindGameObjectsWithTag("DropPoint");
+        GameObject[] dropPoints = GameObject.FindGameObjectsWithTag("Point");
         GameObject nearestPoint = null;
         float closestDistance = Mathf.Infinity;
 
@@ -50,12 +49,10 @@ public class Arrow_Control : MonoBehaviour
 
         if (nearestPoint != null)
         {
-            // Thả vào đúng vị trí
             transform.position = nearestPoint.transform.position;
         }
         else
         {
-            // Trả về vị trí ban đầu
             StartCoroutine(SmoothReturnToOriginalPosition());
         }
     }

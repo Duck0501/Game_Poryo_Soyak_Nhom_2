@@ -25,6 +25,7 @@ public class Item : MonoBehaviour
     public Sprite redSprite;
     public Sprite yellowSprite;
     [HideInInspector] public bool isMovingByConveyor = false;
+    [HideInInspector] public bool isRedirectingByArrow = false;
 
     void Start()
     {

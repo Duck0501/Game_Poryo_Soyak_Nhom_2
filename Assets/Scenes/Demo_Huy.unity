@@ -2369,7 +2369,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Down
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6144668833435054944, guid: abc5ab78e915dba48bc31cf971c9a246, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2529,7 +2530,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1190871928766809031, guid: 5a0cc3ccc2b80af488d3f531963873bc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -3643,16 +3645,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   moveDuration: 0.5
-  moveInterval: 1
-  currentTurn: 0
-  maxTurns: 6
-  turnText: {fileID: 1076294012}
-  gameOverPanel: {fileID: 0}
-  winPanel: {fileID: 0}
-  playButton: {fileID: 1372303485}
-  playButtonImage: {fileID: 1372303482}
-  playSprite: {fileID: 6068752714494607558, guid: 591318ee53538b34c811f5f61ee21299, type: 3}
-  stopSprite: {fileID: 3794550611322748858, guid: 08c5a2cd87458694fa07f4b50016abb9, type: 3}
 --- !u!1 &983773499
 GameObject:
   m_ObjectHideFlags: 0
@@ -5711,9 +5703,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
+  foodType: 0
   possibleSprites: []
-  conveyor: {fileID: 0}
-  beltIndex: 0
+  purpleSprite: {fileID: 0}
+  redSprite: {fileID: 0}
+  yellowSprite: {fileID: 0}
+  isMovingByConveyor: 0
 --- !u!1 &1594984832
 GameObject:
   m_ObjectHideFlags: 0
@@ -6625,9 +6620,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 0
+  foodType: 0
   possibleSprites: []
-  conveyor: {fileID: 0}
-  beltIndex: 0
+  purpleSprite: {fileID: 0}
+  redSprite: {fileID: 0}
+  yellowSprite: {fileID: 0}
+  isMovingByConveyor: 0
 --- !u!1 &1943675993
 GameObject:
   m_ObjectHideFlags: 0

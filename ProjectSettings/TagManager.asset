@@ -8,6 +8,7 @@ TagManager:
   - Ground
   - Conveyor
   - DropPoint
+  - Point
   layers:
   - Default
   - TransparentFX
@@ -45,13 +46,13 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: BG
+  - name: 
     uniqueID: 34552903
     locked: 0
-  - name: Item
+  - name: 
     uniqueID: 4281277695
     locked: 0
-  - name: Player
+  - name: 
     uniqueID: 2147114525
     locked: 0
   m_RenderingLayers:

@@ -91,7 +91,6 @@ public class ConveyorManager : MonoBehaviour
         isGameOver = true;
         isPlaying = false;
         winPanel.SetActive(true);
-        Debug.Log("✅ YOU WIN!");
         StartCoroutine(ShowLevelCanvasAfterDelay());
     }
 
@@ -100,7 +99,6 @@ public class ConveyorManager : MonoBehaviour
         isGameOver = true;
         isPlaying = false;
         losePanel.SetActive(true);
-        Debug.Log("❌ YOU LOSE!");
     }
     public void QueueDestroy(GameObject go, float delay)
     {
@@ -118,19 +116,15 @@ public class ConveyorManager : MonoBehaviour
     }
     private IEnumerator ProcessAfterTurn()
     {
-        // Gọi tất cả Player ăn (delay trong đó)
         foreach (var player in FindObjectsOfType<PlayerEatFood>())
             player.TryEatAfterBelt();
 
-        // Chờ đảm bảo Player ăn xong (delay 0.2s là đủ)
         yield return new WaitForSeconds(0.2f);
 
-        // Destroy pending objects
         foreach (var (go, delay) in destroyQueue)
             Destroy(go, delay);
         destroyQueue.Clear();
 
-        // Nếu đã win/lose trong quá trình ăn → thoát
         if (isGameOver) yield break;
 
         if (!AnyBeltHasFood())
