@@ -76,6 +76,7 @@ public class ConveyorManager : MonoBehaviour
 
         isPlaying = !isPlaying;
         playButtonImage.sprite = isPlaying ? stopSprite : playSprite;
+        AudioManager.Instance.Click();
     }
 
     void OnBeltTurnFinished(ConveyorBelt belt)
@@ -118,6 +119,7 @@ public class ConveyorManager : MonoBehaviour
         isPlaying = false;
         winPanel.SetActive(true);
         Debug.Log("✅ YOU WIN!");
+        AudioManager.Instance.Win();
     }
 
     void GameLose()
@@ -126,5 +128,6 @@ public class ConveyorManager : MonoBehaviour
         isPlaying = false;
         losePanel.SetActive(true);
         Debug.Log("❌ YOU LOSE!");
+        AudioManager.Instance.Lose();
     }
 }
