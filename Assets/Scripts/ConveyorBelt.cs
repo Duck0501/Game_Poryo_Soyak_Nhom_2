@@ -1,9 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;
-using DG.Tweening;
-using static UnityEditor.Progress;
 
 public class ConveyorBelt : MonoBehaviour
 {
@@ -11,98 +8,46 @@ public class ConveyorBelt : MonoBehaviour
     public List<Transform> beltSlots;
     public List<Item> itemsOnBelt;
 
-    [Header("Move Settings")]
-    public float moveDuration = 0.3f;
-    public float moveInterval = 1f;
+    [HideInInspector] public float moveDuration;
 
-    [Header("Turn Settings")]
-    public int currentTurn = 0;
-    public int maxTurns = 20;
-    public TextMeshProUGUI turnText;
-
-    [Header("UI")]
-    public GameObject gameOverPanel;
-    public GameObject winPanel;
-    public Button playButton;
-    public Image playButtonImage;
-    public Sprite playSprite;
-    public Sprite stopSprite;
-
-    private bool isPlaying = false;
-    private float timer = 0f;
-
-    void Update()
+    public void RotateBelt(System.Action onFinished)
     {
-        if (!isPlaying) return;
-
-        timer += Time.deltaTime;
-        if (timer >= moveInterval)
+        if (beltSlots.Count != itemsOnBelt.Count)
         {
-            timer = 0f;
-            RotateBeltSmooth();
+            onFinished?.Invoke();
+            return;
         }
-    }
 
-    public void OnPlayButtonClicked()
-    {
-        isPlaying = !isPlaying;
-
-        playButtonImage.sprite = isPlaying ? stopSprite : playSprite;
-    }
-
-    void RotateBeltSmooth()
-    {
-        if (beltSlots.Count != itemsOnBelt.Count) return;
-
-        currentTurn++;
-        turnText.text = $"{currentTurn.ToString("D2")}";
-
-        // Xoay mảng item
         Item lastItem = itemsOnBelt[itemsOnBelt.Count - 1];
         for (int i = itemsOnBelt.Count - 1; i > 0; i--)
-        {
             itemsOnBelt[i] = itemsOnBelt[i - 1];
-        }
         itemsOnBelt[0] = lastItem;
 
-        int movingCount = 0;
+        int totalToMove = 0;
 
         for (int i = 0; i < itemsOnBelt.Count; i++)
         {
             if (itemsOnBelt[i] != null)
             {
-                movingCount++;
-                int index = i;
-
+                totalToMove++;
                 itemsOnBelt[i].transform.DOMove(beltSlots[i].position, moveDuration)
                     .SetEase(Ease.OutQuad)
                     .OnComplete(() =>
                     {
-                        movingCount--;
-                        if (movingCount <= 0)
-                        {
-                            // ✅ Sau khi tất cả Tween xong, kiểm tra trạng thái game
-                            if (!HasAnyFood())
-                            {
-                                isPlaying = false;
-                                winPanel.SetActive(true);
-                                Debug.Log("✅ YOU WIN - không còn đồ ăn!");
-                            }
-                            else if (currentTurn >= maxTurns)
-                            {
-                                isPlaying = false;
-                                gameOverPanel.SetActive(true);
-                                Debug.Log("❌ YOU LOSE - hết lượt còn đồ ăn!");
-                            }
-                        }
+                        totalToMove--;
+                        if (totalToMove <= 0)
+                            onFinished?.Invoke();
                     });
 
                 itemsOnBelt[i].OnEnterNewSlot();
             }
         }
+
+        if (totalToMove == 0)
+            onFinished?.Invoke();
     }
 
-    bool HasAnyFood()
+    public bool HasFood()
     {
         foreach (var item in itemsOnBelt)
         {
