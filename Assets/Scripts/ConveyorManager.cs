@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class ConveyorManager : MonoBehaviour
 {
@@ -33,9 +34,12 @@ public class ConveyorManager : MonoBehaviour
 
     public static ConveyorManager Instance { get; private set; }
     private List<(GameObject go, float delay)> destroyQueue = new List<(GameObject, float)>();
+
+    private GameManager gameManager;
     void Start()
     {
         Instance = this;
+        gameManager = FindObjectOfType<GameManager>();
         foreach (var belt in allBelts)
         {
             belt.moveDuration = moveDuration;
@@ -49,7 +53,6 @@ public class ConveyorManager : MonoBehaviour
     {
         if (!isPlaying || isGameOver || isRunningTurn) return;
 
-        // Bắt đầu 1 lượt mới
         isRunningTurn = true;
         beltDoneCount = 0;
 
@@ -73,6 +76,7 @@ public class ConveyorManager : MonoBehaviour
 
         isPlaying = !isPlaying;
         playButtonImage.sprite = isPlaying ? stopSprite : playSprite;
+        playButtonImage.SetNativeSize();
     }
     void UpdateTurnText()
     {
@@ -91,6 +95,10 @@ public class ConveyorManager : MonoBehaviour
         isGameOver = true;
         isPlaying = false;
         winPanel.SetActive(true);
+        if (gameManager != null)
+        {
+            gameManager.PlayWinSound();
+        }
         StartCoroutine(ShowLevelCanvasAfterDelay());
     }
 
@@ -98,7 +106,23 @@ public class ConveyorManager : MonoBehaviour
     {
         isGameOver = true;
         isPlaying = false;
+        if (gameManager != null)
+        {
+            gameManager.PlayLoseSound();
+        }
         losePanel.SetActive(true);
+        if (gameManager != null && gameManager.currentLevel != null)
+        {
+            Button[] buttons = gameManager.currentLevel.GetComponentsInChildren<Button>();
+            foreach (Button btn in buttons)
+            {
+                if (btn.name.ToLower().Contains("replay"))
+                {
+                    btn.transform.DOKill();
+                    btn.transform.DOScale(1.2f, 0.5f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);
+                }
+            }
+        }
     }
     public void QueueDestroy(GameObject go, float delay)
     {
@@ -140,6 +164,21 @@ public class ConveyorManager : MonoBehaviour
                 GameLose();
             else
                 isRunningTurn = false;
+        }
+    }
+    public void StopReplayButtonTween()
+    {
+        if (gameManager != null && gameManager.currentLevel != null)
+        {
+            Button[] buttons = gameManager.currentLevel.GetComponentsInChildren<Button>();
+            foreach (Button btn in buttons)
+            {
+                if (btn.name.ToLower().Contains("replay"))
+                {
+                    btn.transform.DOKill();
+                    btn.transform.localScale = Vector3.one;
+                }
+            }
         }
     }
 }

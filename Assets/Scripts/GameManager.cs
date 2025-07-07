@@ -19,6 +19,10 @@ public class GameManager : MonoBehaviour
     public Button[] levelButtons;
 
     private int currentLevelIndex = -1;
+    public AudioSource backgroundMusic;
+    public AudioSource soundEffects;
+    public AudioClip winSound;
+    public AudioClip loseSound;
 
     void Start()
     {
@@ -33,6 +37,13 @@ public class GameManager : MonoBehaviour
         {
             int levelIndex = i + 1;
             levelButtons[i].onClick.AddListener(() => LevelSelected(levelIndex));
+        }
+
+        if (backgroundMusic != null)
+        {
+            backgroundMusic.loop = true;
+            backgroundMusic.playOnAwake = true;
+            backgroundMusic.Play();
         }
     }
 
@@ -50,6 +61,8 @@ public class GameManager : MonoBehaviour
 
     public void ShowCanvas(GameObject canvasToShow)
     {
+        ConveyorManager.Instance?.StopReplayButtonTween();
+
         canvasHome.SetActive(canvasToShow == canvasHome);
         canvasHelp.SetActive(canvasToShow == canvasHelp);
         canvasLevel.SetActive(canvasToShow == canvasLevel);
@@ -69,7 +82,6 @@ public class GameManager : MonoBehaviour
         canvasLevel.SetActive(false);
 
         if (currentLevel != null) Destroy(currentLevel);
-
 
         if (level > 0 && level <= levelPrefabs.Length)
         {
@@ -92,6 +104,8 @@ public class GameManager : MonoBehaviour
 
     public void ResetCurrentLevel()
     {
+        ConveyorManager.Instance?.StopReplayButtonTween();
+
         if (currentLevelIndex >= 0 && currentLevelIndex < levelPrefabs.Length)
         {
             LevelSelected(currentLevelIndex + 1);
@@ -107,6 +121,22 @@ public class GameManager : MonoBehaviour
         else
         {
             ShowCanvas(canvasHome);
+        }
+    }
+
+    public void PlayWinSound()
+    {
+        if (soundEffects != null && winSound != null)
+        {
+            soundEffects.PlayOneShot(winSound);
+        }
+    }
+
+    public void PlayLoseSound()
+    {
+        if (soundEffects != null && loseSound != null)
+        {
+            soundEffects.PlayOneShot(loseSound);
         }
     }
 }

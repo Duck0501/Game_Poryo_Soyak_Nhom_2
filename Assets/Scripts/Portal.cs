@@ -31,10 +31,8 @@ public class Portal : MonoBehaviour
                         belt.itemsOnBelt[oldIndex] = null;
                         belt.itemsOnBelt[newIndex] = item;
 
-                        // ✅ Dịch chuyển đến đúng vị trí slot chứ không phải transform của portal
                         item.transform.position = belt.beltSlots[newIndex].position;
 
-                        // ✅ Chặn tiếp tục tween/dịch chuyển sau đó
                         item.isMovingByConveyor = false;
                     }
                 }
